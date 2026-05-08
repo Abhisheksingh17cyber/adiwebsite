@@ -32,8 +32,8 @@ export function Footer() {
               <img
                 src={logoImg}
                 alt="EditByAdi"
-                className="h-24 w-auto object-contain mb-6"
-                style={{ mixBlendMode: "screen", filter: "contrast(1.1) brightness(1.2)" }}
+                className="h-36 w-auto object-contain mb-6"
+                style={{ mixBlendMode: "screen", filter: "contrast(1.1) brightness(1.2)", transform: "scale(1.1)" }}
               />
             </Link>
             <p
