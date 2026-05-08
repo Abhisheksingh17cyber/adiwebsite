@@ -173,7 +173,7 @@ export default function HomePage() {
           </div>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.9 }}
-            className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-10">
+            className="flex flex-col items-start gap-8">
             <p className="max-w-md" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1.05rem", color: "rgba(248,246,240,0.5)", lineHeight: 1.85, fontWeight: 300 }}>
               Transforming raw footage into cinematic masterpieces. Precision editing for creators, brands, and businesses who refuse to settle for anything less than extraordinary.
             </p>
