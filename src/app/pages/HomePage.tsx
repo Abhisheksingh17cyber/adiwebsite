@@ -1,0 +1,373 @@
+import { motion } from "motion/react";
+import { Link } from "react-router";
+import { Play, ArrowDown, ArrowRight, Film, Zap, Monitor, Quote } from "lucide-react";
+import { MarqueeBanner } from "../components/MarqueeBanner";
+import { useState, useMemo } from "react";
+import Hyperspeed from "../components/Hyperspeed";
+
+const stats = [
+  { value: "500+", label: "Videos Delivered" },
+  { value: "100+", label: "Happy Clients" },
+  { value: "5★", label: "Avg. Rating" },
+  { value: "3 Yrs", label: "Of Experience" },
+];
+
+const previewServices = [
+  {
+    icon: Film,
+    title: "Cinematic Edits",
+    desc: "Breathtaking cinematic cuts with colour grading, sound design, and seamless transitions.",
+  },
+  {
+    icon: Zap,
+    title: "Reels & Shorts",
+    desc: "Hook-driven short-form edits built to go viral on Instagram, YouTube Shorts & TikTok.",
+  },
+  {
+    icon: Monitor,
+    title: "Brand & Ad Films",
+    desc: "Premium commercial edits that communicate your brand's value and drive conversions.",
+  },
+];
+
+const portfolioPreviews = [
+  {
+    id: 1,
+    title: "Cinematic Brand Film",
+    category: "Brand & Commercial",
+    image: "https://images.unsplash.com/photo-1628571201589-bd794b68071e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBmaWxtJTIwcHJvZHVjdGlvbiUyMGJlaGluZCUyMHNjZW5lc3xlbnwxfHx8fDE3NzgyNzU2OTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    span: "md:col-span-7",
+  },
+  {
+    id: 2,
+    title: "Social Media Pack",
+    category: "Social Media",
+    image: "https://images.unsplash.com/photo-1762535120786-76238d9eeb0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMGNvbnRlbnQlMjBjcmVhdG9yJTIwZmlsbWluZ3xlbnwxfHx8fDE3NzgyNzU3MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    span: "md:col-span-5",
+  },
+  {
+    id: 3,
+    title: "Luxury Wedding Highlight",
+    category: "Wedding Film",
+    image: "https://images.unsplash.com/photo-1770896686968-bf828a561a64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaW5lbWF0aWMlMjBwb3J0cmFpdCUyMGRhcmslMjBtb29keSUyMGxpZ2h0aW5nfGVufDF8fHx8MTc3ODI3NTcwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+    span: "md:col-span-5",
+  },
+  {
+    id: 4,
+    title: "Product Commercial",
+    category: "Brand & Commercial",
+    image: "https://images.unsplash.com/photo-1759563871375-a728c4e7218d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBicmFuZCUyMGNvbW1lcmNpYWwlMjB2aWRlbyUyMHNob290fGVufDF8fHx8MTc3ODI3NTY5OHww&ixlib=rb-4.1.0&q=80&w=1080",
+    span: "md:col-span-7",
+  },
+];
+
+const testimonials = [
+  {
+    id: 1,
+    quote: "EditByAdi completely transformed our brand's video presence. The cinematic quality was beyond anything we expected. Our engagement tripled within a month.",
+    name: "Priya Sharma",
+    role: "Founder, LuxeBloom",
+    avatar: "PS",
+  },
+  {
+    id: 2,
+    quote: "Working with Adi was an absolute pleasure. Fast turnaround, beautiful edits, and they understood our vision from the very first call.",
+    name: "Rahul Mehta",
+    role: "YouTube Creator • 500K Subs",
+    avatar: "RM",
+  },
+  {
+    id: 3,
+    quote: "Our wedding film made everyone cry — in the best way. Adi captured emotions we didn't even notice in the moment. A treasure we'll hold forever.",
+    name: "Ananya & Vikram",
+    role: "Wedding Clients",
+    avatar: "AV",
+  },
+];
+
+export default function HomePage() {
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  const hyperspeedOptions = useMemo(() => ({
+    distortion: 'turbulentDistortion',
+    length: 400,
+    roadWidth: 9,
+    islandWidth: 2,
+    lanesPerRoad: 4,
+    fov: 90,
+    fovSpeedUp: 150,
+    speedUp: 2,
+    carLightsFade: 0.4,
+    totalSideLightSticks: 20,
+    lightPairsPerRoadWay: 40,
+    shoulderLinesWidthPercentage: 0.05,
+    brokenLinesWidthPercentage: 0.1,
+    brokenLinesLengthPercentage: 0.5,
+    lightStickWidth: [0.12, 0.5] as [number, number],
+    lightStickHeight: [1.3, 1.7] as [number, number],
+    movingAwaySpeed: [60, 80] as [number, number],
+    movingCloserSpeed: [-120, -160] as [number, number],
+    carLightsLength: [400 * 0.03, 400 * 0.2] as [number, number],
+    carLightsRadius: [0.05, 0.14] as [number, number],
+    carWidthPercentage: [0.3, 0.5] as [number, number],
+    carShiftX: [-0.8, 0.8] as [number, number],
+    carFloorSeparation: [0, 5] as [number, number],
+    colors: {
+      roadColor: 0x080808,
+      islandColor: 0x0a0a0a,
+      background: 0x000000,
+      shoulderLines: 0xffffff,
+      brokenLines: 0xffffff,
+      // Gold tones for both lanes — matches EditByAdi brand
+      leftCars:  [0xc9a84c, 0xd4af37, 0xb8972a],
+      rightCars: [0xfff4c2, 0xf5c518, 0xc9a84c],
+      sticks: 0xc9a84c,
+    },
+  }), []);
+
+  return (
+    <>
+      {/* ─── HERO ─────────────────────────────────────────────── */}
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden" style={{ background: "#000000" }}>
+
+        {/* Hyperspeed background — fills entire hero */}
+        <div className="absolute inset-0 z-0">
+          <Hyperspeed effectOptions={hyperspeedOptions} />
+        </div>
+
+        {/* Gradient overlays — top fade for navbar, bottom fade for stats bar */}
+        <div className="absolute inset-0 z-[1] pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.0) 25%, rgba(0,0,0,0.0) 60%, rgba(0,0,0,0.88) 100%)" }} />
+        {/* Subtle centre vignette so copy pops */}
+        <div className="absolute inset-0 z-[2] pointer-events-none" style={{ background: "radial-gradient(ellipse 85% 70% at 50% 45%, transparent 40%, rgba(0,0,0,0.45) 100%)" }} />
+
+        {/* side accent lines */}
+        <div className="absolute top-0 left-[8%] w-px h-48 z-[3]" style={{ background: "linear-gradient(180deg,transparent,var(--gold),transparent)", opacity: 0.5 }} />
+        <div className="absolute bottom-0 right-[8%] w-px h-48 z-[3]" style={{ background: "linear-gradient(0deg,transparent,var(--gold),transparent)", opacity: 0.5 }} />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-24">
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="flex items-center gap-4 mb-8">
+            <div className="h-px w-12" style={{ background: "var(--gold)" }} />
+            <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>
+              Premium Video Editing Agency
+            </span>
+          </motion.div>
+
+          <div className="overflow-hidden mb-3">
+            <motion.h1 initial={{ y: 110, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="text-white" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3.5rem,8vw,9rem)", fontWeight: 300, lineHeight: 1, letterSpacing: "-0.02em" }}>
+              We Edit.
+            </motion.h1>
+          </div>
+          <div className="overflow-hidden mb-3">
+            <motion.h1 initial={{ y: 110, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="shimmer-text" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3.5rem,8vw,9rem)", fontWeight: 600, lineHeight: 1, fontStyle: "italic", letterSpacing: "-0.02em" }}>
+              You Shine.
+            </motion.h1>
+          </div>
+          <div className="overflow-hidden mb-12">
+            <motion.h1 initial={{ y: 110, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="text-white/25" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3.5rem,8vw,9rem)", fontWeight: 300, lineHeight: 1, letterSpacing: "-0.02em" }}>
+              Always.
+            </motion.h1>
+          </div>
+
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.9 }}
+            className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-10">
+            <p className="max-w-md" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1.05rem", color: "rgba(248,246,240,0.5)", lineHeight: 1.85, fontWeight: 300 }}>
+              Transforming raw footage into cinematic masterpieces. Precision editing for creators, brands, and businesses who refuse to settle for anything less than extraordinary.
+            </p>
+            <div className="flex items-center gap-5">
+              <Link to="/contact" className="relative px-8 py-4 text-sm tracking-[0.12em] uppercase font-medium overflow-hidden group" style={{ fontFamily: "'DM Sans',sans-serif" }}>
+                <span className="absolute inset-0" style={{ background: "var(--gold)" }} />
+                <span className="absolute inset-0 opacity-0 group-hover:opacity-80 transition-opacity duration-300" style={{ background: "#fff" }} />
+                <span className="relative text-black">Start Your Project</span>
+              </Link>
+              <Link to="/work" className="flex items-center gap-3 text-sm tracking-[0.08em] uppercase group" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'DM Sans',sans-serif" }}>
+                <div className="w-12 h-12 rounded-full flex items-center justify-center border transition-all duration-300 group-hover:border-[var(--gold)] group-hover:bg-[var(--gold-subtle)]" style={{ borderColor: "rgba(255,255,255,0.2)" }}>
+                  <Play size={14} fill="var(--gold)" color="var(--gold)" />
+                </div>
+                <span className="group-hover:text-[var(--gold)] transition-colors">View Work</span>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Stats bar */}
+        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 1.1 }}
+          className="relative z-10 border-t" style={{ borderColor: "rgba(201,168,76,0.2)" }}>
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="grid grid-cols-2 lg:grid-cols-4">
+              {stats.map((stat, i) => (
+                <div key={stat.label} className="py-6 px-6 text-center" style={{ borderRight: i < 3 ? "1px solid rgba(201,168,76,0.15)" : "none" }}>
+                  <div className="gold-text-gradient block" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "2.2rem", fontWeight: 600, lineHeight: 1, marginBottom: "0.35rem" }}>{stat.value}</div>
+                  <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.68rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)" }}>{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }} className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10" style={{ color: "rgba(255,255,255,0.25)" }}>
+          <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 2, repeat: Infinity }}>
+            <ArrowDown size={16} />
+          </motion.div>
+        </motion.div>
+      </section>
+
+      <MarqueeBanner />
+
+      {/* ─── SERVICES PREVIEW ─────────────────────────────────── */}
+      <section className="py-28" style={{ background: "#0a0a0a" }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+            <div>
+              <div className="flex items-center gap-4 mb-5">
+                <div className="h-px w-12" style={{ background: "var(--gold)" }} />
+                <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>What We Do</span>
+              </div>
+              <h2 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(2.5rem,4.5vw,4.5rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.1 }}>
+                Crafted with <em style={{ color: "var(--gold)", fontStyle: "italic" }}>precision</em>
+                <br />& purpose.
+              </h2>
+            </div>
+            <Link to="/services" className="flex items-center gap-2 text-sm tracking-[0.12em] uppercase group shrink-0" style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif" }}>
+              View All Services
+              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {previewServices.map((svc, i) => {
+              const Icon = svc.icon;
+              return (
+                <motion.div key={svc.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                  className="group relative p-8 lg:p-10 overflow-hidden" style={{ background: "#0a0a0a", border: "1px solid rgba(201,168,76,0.12)", borderRadius: "1.25rem" }}>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "var(--gold-subtle)", borderRadius: "1.25rem" }} />
+                  <div className="absolute top-0 left-8 right-8 h-px origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: "var(--gold)" }} />
+                  <div className="relative">
+                    <div className="w-12 h-12 flex items-center justify-center border mb-6" style={{ borderColor: "rgba(201,168,76,0.25)", color: "var(--gold)", borderRadius: "0.625rem" }}>
+                      <Icon size={20} />
+                    </div>
+                    <h3 className="mb-3" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.9rem", fontWeight: 500, color: "#f8f6f0" }}>{svc.title}</h3>
+                    <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.9rem", color: "rgba(248,246,240,0.45)", lineHeight: 1.75, fontWeight: 300 }}>{svc.desc}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PORTFOLIO PREVIEW ────────────────────────────────── */}
+      <section className="py-28" style={{ background: "#080808" }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
+            <div>
+              <div className="flex items-center gap-4 mb-5">
+                <div className="h-px w-12" style={{ background: "var(--gold)" }} />
+                <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>Featured Work</span>
+              </div>
+              <h2 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(2.5rem,4.5vw,4.5rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.1 }}>
+                Stories we've<br /><em style={{ color: "var(--gold)", fontStyle: "italic" }}>brought to life.</em>
+              </h2>
+            </div>
+            <Link to="/work" className="flex items-center gap-2 text-sm tracking-[0.12em] uppercase group shrink-0" style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif" }}>
+              View Full Portfolio
+              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+            {portfolioPreviews.map((work) => (
+              <motion.div key={work.id} initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
+                className={`relative overflow-hidden group cursor-pointer aspect-[4/3] ${work.span}`}
+                style={{ borderRadius: "1.25rem" }}
+                onMouseEnter={() => setHoveredId(work.id)} onMouseLeave={() => setHoveredId(null)}>
+                <img src={work.image} alt={work.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 transition-opacity duration-300" style={{ background: "linear-gradient(180deg,transparent 30%,rgba(8,8,8,0.85) 100%)", opacity: hoveredId === work.id ? 1 : 0.55 }} />
+                {hoveredId === work.id && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ border: "2px solid var(--gold)", background: "rgba(201,168,76,0.15)" }}>
+                      <Play size={18} fill="var(--gold)" color="var(--gold)" />
+                    </div>
+                  </div>
+                )}
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "4px" }}>{work.category}</p>
+                  <h3 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.5rem", fontWeight: 500, color: "#f8f6f0" }}>{work.title}</h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── TESTIMONIALS ─────────────────────────────────────── */}
+      <section className="py-28 relative overflow-hidden" style={{ background: "#0a0a0a" }}>
+        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full opacity-5 pointer-events-none" style={{ background: "radial-gradient(circle,var(--gold) 0%,transparent 70%)", transform: "translate(-30%,30%)" }} />
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
+          <div className="flex items-center gap-4 mb-5">
+            <div className="h-px w-12" style={{ background: "var(--gold)" }} />
+            <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>Client Stories</span>
+          </div>
+          <h2 className="mb-12" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(2.5rem,4.5vw,4.5rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.1 }}>
+            Voices that<br /><em style={{ color: "var(--gold)", fontStyle: "italic" }}>inspire us.</em>
+          </h2>
+
+          <div className="p-10 lg:p-14 relative" style={{ background: "rgba(201,168,76,0.04)", border: "1px solid rgba(201,168,76,0.14)", borderRadius: "1.5rem" }}>
+            <div className="absolute top-8 right-10 opacity-10"><Quote size={72} style={{ color: "var(--gold)" }} /></div>
+            <p className="mb-8" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(1.3rem,2.5vw,1.9rem)", fontWeight: 400, color: "rgba(248,246,240,0.85)", lineHeight: 1.65, fontStyle: "italic", maxWidth: "760px" }}>
+              "{testimonials[activeTestimonial].quote}"
+            </p>
+            <div className="flex items-center gap-4">
+              <div className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-semibold" style={{ background: "linear-gradient(135deg,var(--gold),var(--gold-dark))", color: "#080808", fontFamily: "'DM Sans',sans-serif" }}>
+                {testimonials[activeTestimonial].avatar}
+              </div>
+              <div>
+                <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.95rem", fontWeight: 500, color: "#f8f6f0" }}>{testimonials[activeTestimonial].name}</div>
+                <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.78rem", color: "rgba(201,168,76,0.7)" }}>{testimonials[activeTestimonial].role}</div>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 mt-6">
+            {testimonials.map((_, i) => (
+              <button key={i} onClick={() => setActiveTestimonial(i)} className="transition-all duration-300 h-0.5" style={{ width: i === activeTestimonial ? "28px" : "8px", background: i === activeTestimonial ? "var(--gold)" : "rgba(201,168,76,0.25)" }} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CTA BANNER ───────────────────────────────────────── */}
+      <section className="py-32 relative overflow-hidden" style={{ background: "#080808" }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%,rgba(201,168,76,0.07) 0%,transparent 70%)" }} />
+        <div className="max-w-4xl mx-auto px-6 text-center relative">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-px w-16" style={{ background: "var(--gold)" }} />
+              <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>Start Today</span>
+              <div className="h-px w-16" style={{ background: "var(--gold)" }} />
+            </div>
+            <h2 className="mb-6" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,6vw,6rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.05 }}>
+              Ready to create
+              <br /><em className="shimmer-text" style={{ fontStyle: "italic" }}>something iconic?</em>
+            </h2>
+            <p className="mb-10" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(248,246,240,0.45)", lineHeight: 1.8, fontWeight: 300, maxWidth: "480px", margin: "0 auto 2.5rem" }}>
+              Let's talk about your project. No obligation, just a conversation about bringing your vision to life.
+            </p>
+            <div className="flex items-center justify-center gap-5 flex-wrap">
+              <Link to="/contact" className="px-10 py-4 text-sm tracking-[0.12em] uppercase font-medium relative overflow-hidden group" style={{ fontFamily: "'DM Sans',sans-serif", borderRadius: "0.625rem" }}>
+                <span className="absolute inset-0" style={{ background: "var(--gold)", borderRadius: "0.625rem" }} />
+                <span className="absolute inset-0 opacity-0 group-hover:opacity-80 transition-opacity" style={{ background: "#fff", borderRadius: "0.625rem" }} />
+                <span className="relative text-black">Get In Touch</span>
+              </Link>
+              <Link to="/pricing" className="px-10 py-4 text-sm tracking-[0.12em] uppercase border transition-all duration-300 hover:bg-[var(--gold)] hover:text-black hover:border-[var(--gold)]" style={{ fontFamily: "'DM Sans',sans-serif", borderColor: "rgba(201,168,76,0.4)", color: "rgba(248,246,240,0.6)", borderRadius: "0.625rem" }}>
+                View Pricing
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </>
+  );
+}
