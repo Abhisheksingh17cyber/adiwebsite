@@ -4,6 +4,7 @@ import { Play, ArrowDown, ArrowRight, Film, Zap, Monitor, Quote } from "lucide-r
 import { MarqueeBanner } from "../components/MarqueeBanner";
 import { useState, useMemo } from "react";
 import Hyperspeed from "../components/Hyperspeed";
+import BorderGlow from '../components/BorderGlow';
 
 const stats = [
   { value: "500+", label: "Videos Delivered" },
@@ -328,29 +329,31 @@ export default function HomePage() {
       {/* ─── CTA BANNER ───────────────────────────────────────── */}
       <section className="py-32 relative overflow-hidden" style={{ background: "#080808" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%,rgba(201,168,76,0.07) 0%,transparent 70%)" }} />
-        <div className="max-w-4xl mx-auto px-6 text-center relative">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-px w-16" style={{ background: "var(--gold)" }} />
-              <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>Start Today</span>
-              <div className="h-px w-16" style={{ background: "var(--gold)" }} />
-            </div>
-            <h2 className="mb-6" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,6vw,6rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.05 }}>
-              Ready to create
-              <br /><em className="shimmer-text" style={{ fontStyle: "italic" }}>something iconic?</em>
-            </h2>
-            <p className="mb-10" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(248,246,240,0.45)", lineHeight: 1.8, fontWeight: 300, maxWidth: "480px", margin: "0 auto 2.5rem" }}>
-              Let's talk about your project. No obligation, just a conversation about bringing your vision to life.
-            </p>
-            <div className="flex items-center justify-center gap-5 flex-wrap">
-              <Link to="/contact" className="btn-12">
-                <span>Get In Touch</span>
-              </Link>
-              <Link to="/pricing" className="btn-12">
-                <span>View Pricing</span>
-              </Link>
-            </div>
-          </motion.div>
+        <div className="max-w-4xl mx-auto px-6 relative">
+          <BorderGlow className="p-12 lg:p-20 text-center" borderRadius={32} glowIntensity={1.2}>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <div className="flex items-center justify-center gap-4 mb-8">
+                <div className="h-px w-16" style={{ background: "var(--gold)" }} />
+                <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>Start Today</span>
+                <div className="h-px w-16" style={{ background: "var(--gold)" }} />
+              </div>
+              <h2 className="mb-6" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,6vw,6rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.05 }}>
+                Ready to create
+                <br /><em className="shimmer-text" style={{ fontStyle: "italic" }}>something iconic?</em>
+              </h2>
+              <p className="mb-10" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(248,246,240,0.45)", lineHeight: 1.8, fontWeight: 300, maxWidth: "480px", margin: "0 auto 2.5rem" }}>
+                Let's talk about your project. No obligation, just a conversation about bringing your vision to life.
+              </p>
+              <div className="flex items-center justify-center gap-5 flex-wrap">
+                <Link to="/contact" className="btn-12">
+                  <span>Get In Touch</span>
+                </Link>
+                <Link to="/pricing" className="btn-12">
+                  <span>View Pricing</span>
+                </Link>
+              </div>
+            </motion.div>
+          </BorderGlow>
         </div>
       </section>
     </>

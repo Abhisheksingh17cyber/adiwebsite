@@ -1,0 +1,81 @@
+.border-glow-card {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  z-index: 0;
+  width: 100%;
+}
+
+.border-glow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--gradient-base);
+  opacity: var(--fill-opacity);
+}
+
+.border-glow-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: 
+    var(--gradient-one),
+    var(--gradient-two),
+    var(--gradient-three),
+    var(--gradient-four),
+    var(--gradient-five),
+    var(--gradient-six),
+    var(--gradient-seven);
+  opacity: var(--fill-opacity);
+}
+
+.edge-light {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: var(--border-radius);
+  /* The padding here determines the border thickness */
+  padding: 1px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+}
+
+.edge-light::before {
+  content: "";
+  position: absolute;
+  /* Centered and large enough to cover corners when rotating */
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+    from calc(var(--cursor-angle) - var(--cone-spread) * 1deg),
+    transparent 0,
+    var(--glow-color) calc(var(--cone-spread) * 1deg),
+    transparent calc(var(--cone-spread) * 2 * 1deg)
+  );
+  opacity: calc(var(--edge-proximity) / 100);
+  transition: opacity 0.3s ease;
+}
+
+.sweep-active .edge-light::before {
+  transition: none;
+}
+
+.border-glow-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  border-radius: inherit;
+  overflow: hidden;
+}
