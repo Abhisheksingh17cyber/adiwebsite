@@ -24,17 +24,12 @@ export function Footer() {
 
   return (
     <footer style={{ background: "#050505", borderTop: "1px solid rgba(201,168,76,0.12)" }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          {/* Brand */}
-          <div className="lg:col-span-4">
-            <Link to="/">
-              <img
-                src={logoImg}
-                alt="EditByAdi"
-                className="h-36 w-auto object-contain mb-6"
-                style={{ mixBlendMode: "screen", filter: "contrast(1.1) brightness(1.2)", transform: "scale(1.1)" }}
-              />
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mb-20">
+          {/* Brand Column */}
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
+            <Link to="/" className="inline-block">
+              <img src={logoImg} alt="EditByAdi Logo" className="h-20 lg:h-28 w-auto object-contain mb-8" style={{ mixBlendMode: "screen", filter: "contrast(1.1) brightness(1.2)" }} />
             </Link>
             <p
               className="mb-8 max-w-xs"

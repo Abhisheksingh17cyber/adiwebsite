@@ -157,26 +157,26 @@ export default function HomePage() {
 
           <div className="overflow-hidden mb-3">
             <motion.h1 initial={{ y: 110, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="text-white" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3.5rem,8vw,9rem)", fontWeight: 300, lineHeight: 1, letterSpacing: "-0.02em" }}>
+              className="text-white" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,8vw,9rem)", fontWeight: 300, lineHeight: 1, letterSpacing: "-0.02em" }}>
               We Edit.
             </motion.h1>
           </div>
           <div className="overflow-hidden mb-3">
             <motion.h1 initial={{ y: 110, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="shimmer-text" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3.5rem,8vw,9rem)", fontWeight: 600, lineHeight: 1, fontStyle: "italic", letterSpacing: "-0.02em" }}>
+              className="shimmer-text" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,8vw,9rem)", fontWeight: 600, lineHeight: 1, fontStyle: "italic", letterSpacing: "-0.02em" }}>
               You Shine.
             </motion.h1>
           </div>
           <div className="overflow-hidden mb-12">
             <motion.h1 initial={{ y: 110, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="text-white/25" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3.5rem,8vw,9rem)", fontWeight: 300, lineHeight: 1, letterSpacing: "-0.02em" }}>
+              className="text-white/25" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,8vw,9rem)", fontWeight: 300, lineHeight: 1, letterSpacing: "-0.02em" }}>
               Always.
             </motion.h1>
           </div>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.9 }}
             className="flex flex-col items-start gap-8">
-            <p className="max-w-md" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1.05rem", color: "rgba(248,246,240,0.5)", lineHeight: 1.85, fontWeight: 300 }}>
+            <p className="max-w-md" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(248,246,240,0.5)", lineHeight: 1.85, fontWeight: 300 }}>
               Transforming raw footage into cinematic masterpieces. Precision editing for creators, brands, and businesses who refuse to settle for anything less than extraordinary.
             </p>
             <div className="flex items-center gap-5">
@@ -191,10 +191,15 @@ export default function HomePage() {
         <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 1.1 }}
           className="relative z-10 border-t" style={{ borderColor: "rgba(201,168,76,0.2)" }}>
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="grid grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 border-l border-r lg:border-l-0 lg:border-r-0" style={{ borderColor: "rgba(201,168,76,0.15)" }}>
               {stats.map((stat, i) => (
-                <div key={stat.label} className="py-6 px-6 text-center" style={{ borderRight: i < 3 ? "1px solid rgba(201,168,76,0.15)" : "none" }}>
-                  <div className="gold-text-gradient block" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "2.2rem", fontWeight: 600, lineHeight: 1, marginBottom: "0.35rem" }}>{stat.value}</div>
+                <div key={stat.label} 
+                  className={`py-10 px-6 text-center border-[rgba(201,168,76,0.15)] 
+                    ${i % 2 === 0 ? 'border-r' : ''} 
+                    ${i < 2 ? 'border-b' : ''} 
+                    lg:border-b-0 lg:border-r lg:last:border-r-0`}
+                >
+                  <div className="gold-text-gradient block" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 600, lineHeight: 1, marginBottom: "0.5rem" }}>{stat.value}</div>
                   <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.68rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)" }}>{stat.label}</div>
                 </div>
               ))}
@@ -268,25 +273,27 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-            {portfolioPreviews.map((work) => (
-              <motion.div key={work.id} initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-                className={`relative overflow-hidden group cursor-pointer aspect-[4/3] ${work.span}`}
-                style={{ borderRadius: "1.25rem" }}
-                onMouseEnter={() => setHoveredId(work.id)} onMouseLeave={() => setHoveredId(null)}>
-                <img src={work.image} alt={work.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 transition-opacity duration-300" style={{ background: "linear-gradient(180deg,transparent 30%,rgba(8,8,8,0.85) 100%)", opacity: hoveredId === work.id ? 1 : 0.55 }} />
-                {hoveredId === work.id && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ border: "2px solid var(--gold)", background: "rgba(201,168,76,0.15)" }}>
-                      <Play size={18} fill="var(--gold)" color="var(--gold)" />
+            {portfolioPreviews.map((work, i) => (
+              <Link key={work.id} to="/work" className={work.span}>
+                <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                  className="relative overflow-hidden group cursor-pointer aspect-[4/3]"
+                  style={{ borderRadius: "1.25rem" }}
+                  onMouseEnter={() => setHoveredId(work.id)} onMouseLeave={() => setHoveredId(null)}>
+                  <img src={work.image} alt={work.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 transition-opacity duration-300" style={{ background: "linear-gradient(180deg,transparent 30%,rgba(8,8,8,0.85) 100%)", opacity: hoveredId === work.id ? 1 : 0.55 }} />
+                  {hoveredId === work.id && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ border: "2px solid var(--gold)", background: "rgba(201,168,76,0.15)" }}>
+                        <Play size={18} fill="var(--gold)" color="var(--gold)" />
+                      </div>
                     </div>
+                  )}
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "4px" }}>{work.category}</p>
+                    <h3 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.5rem", fontWeight: 500, color: "#f8f6f0" }}>{work.title}</h3>
                   </div>
-                )}
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "4px" }}>{work.category}</p>
-                  <h3 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.5rem", fontWeight: 500, color: "#f8f6f0" }}>{work.title}</h3>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>

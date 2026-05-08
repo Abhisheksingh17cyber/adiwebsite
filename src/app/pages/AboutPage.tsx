@@ -56,9 +56,9 @@ export default function AboutPage() {
                 <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,rgba(201,168,76,0.07) 0%,transparent 60%)" }} />
                 <div className="absolute inset-0 border opacity-25" style={{ borderColor: "var(--gold)", margin: "12px", borderRadius: "1.25rem" }} />
               </div>
-              <div className="absolute -bottom-8 -right-8 p-6" style={{ background: "rgba(8,8,8,0.95)", border: "1px solid rgba(201,168,76,0.3)", backdropFilter: "blur(12px)", borderRadius: "1rem" }}>
-                <div className="gold-text-gradient" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "2.8rem", fontWeight: 600, lineHeight: 1 }}>3+</div>
-                <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(248,246,240,0.45)", marginTop: "4px" }}>Years of Excellence</div>
+              <div className="absolute bottom-4 right-4 lg:-bottom-8 lg:-right-8 p-6" style={{ background: "rgba(8,8,8,0.95)", border: "1px solid rgba(201,168,76,0.3)", backdropFilter: "blur(12px)", borderRadius: "1rem" }}>
+                <div className="gold-text-gradient" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(2.2rem, 5vw, 2.8rem)", fontWeight: 600, lineHeight: 1 }}>3+</div>
+                <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.68rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(248,246,240,0.45)", marginTop: "4px" }}>Years of Excellence</div>
               </div>
             </motion.div>
 
@@ -145,9 +145,8 @@ export default function AboutPage() {
           <p className="mb-10" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(248,246,240,0.45)", lineHeight: 1.8, fontWeight: 300 }}>
             Let's talk about your project and see how we can bring your vision to life.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-3 px-10 py-4 text-sm tracking-[0.12em] uppercase font-medium" style={{ fontFamily: "'DM Sans',sans-serif", background: "var(--gold)", color: "#080808", borderRadius: "0.625rem" }}>
-            Get In Touch
-            <ArrowRight size={15} />
+          <Link to="/contact" className="btn-12">
+            <span>Get In Touch</span>
           </Link>
         </div>
       </section>

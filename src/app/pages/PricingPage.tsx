@@ -87,7 +87,7 @@ export default function PricingPage() {
       {/* Plans */}
       <section className="py-20" style={{ background: "#0a0a0a" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {plans.map((plan, i) => (
               <motion.div key={plan.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="relative p-10 lg:p-12 flex flex-col overflow-hidden"
