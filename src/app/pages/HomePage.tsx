@@ -178,16 +178,10 @@ export default function HomePage() {
               Transforming raw footage into cinematic masterpieces. Precision editing for creators, brands, and businesses who refuse to settle for anything less than extraordinary.
             </p>
             <div className="flex items-center gap-5">
-              <Link to="/contact" className="relative px-8 py-4 text-sm tracking-[0.12em] uppercase font-medium overflow-hidden group" style={{ fontFamily: "'DM Sans',sans-serif" }}>
-                <span className="absolute inset-0" style={{ background: "var(--gold)" }} />
-                <span className="absolute inset-0 opacity-0 group-hover:opacity-80 transition-opacity duration-300" style={{ background: "#fff" }} />
+              <Link to="/contact" className="relative px-8 py-4 text-sm tracking-[0.12em] uppercase font-medium overflow-hidden group" style={{ fontFamily: "'DM Sans',sans-serif", borderRadius: "0.625rem" }}>
+                <span className="absolute inset-0" style={{ background: "var(--gold)", borderRadius: "0.625rem" }} />
+                <span className="absolute inset-0 opacity-0 group-hover:opacity-80 transition-opacity duration-300" style={{ background: "#fff", borderRadius: "0.625rem" }} />
                 <span className="relative text-black">Start Your Project</span>
-              </Link>
-              <Link to="/work" className="flex items-center gap-3 text-sm tracking-[0.08em] uppercase group" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'DM Sans',sans-serif" }}>
-                <div className="w-12 h-12 rounded-full flex items-center justify-center border transition-all duration-300 group-hover:border-[var(--gold)] group-hover:bg-[var(--gold-subtle)]" style={{ borderColor: "rgba(255,255,255,0.2)" }}>
-                  <Play size={14} fill="var(--gold)" color="var(--gold)" />
-                </div>
-                <span className="group-hover:text-[var(--gold)] transition-colors">View Work</span>
               </Link>
             </div>
           </motion.div>
@@ -208,11 +202,6 @@ export default function HomePage() {
           </div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }} className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10" style={{ color: "rgba(255,255,255,0.25)" }}>
-          <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 2, repeat: Infinity }}>
-            <ArrowDown size={16} />
-          </motion.div>
-        </motion.div>
       </section>
 
       <MarqueeBanner />
