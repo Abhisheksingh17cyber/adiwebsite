@@ -178,10 +178,8 @@ export default function HomePage() {
               Transforming raw footage into cinematic masterpieces. Precision editing for creators, brands, and businesses who refuse to settle for anything less than extraordinary.
             </p>
             <div className="flex items-center gap-5">
-              <Link to="/contact" className="relative px-8 py-4 text-sm tracking-[0.12em] uppercase font-medium overflow-hidden group" style={{ fontFamily: "'DM Sans',sans-serif", borderRadius: "0.625rem" }}>
-                <span className="absolute inset-0" style={{ background: "var(--gold)", borderRadius: "0.625rem" }} />
-                <span className="absolute inset-0 opacity-0 group-hover:opacity-80 transition-opacity duration-300" style={{ background: "#fff", borderRadius: "0.625rem" }} />
-                <span className="relative text-black">Start Your Project</span>
+              <Link to="/contact" className="btn-12">
+                <span>Start Your Project</span>
               </Link>
             </div>
           </motion.div>
@@ -345,13 +343,11 @@ export default function HomePage() {
               Let's talk about your project. No obligation, just a conversation about bringing your vision to life.
             </p>
             <div className="flex items-center justify-center gap-5 flex-wrap">
-              <Link to="/contact" className="px-10 py-4 text-sm tracking-[0.12em] uppercase font-medium relative overflow-hidden group" style={{ fontFamily: "'DM Sans',sans-serif", borderRadius: "0.625rem" }}>
-                <span className="absolute inset-0" style={{ background: "var(--gold)", borderRadius: "0.625rem" }} />
-                <span className="absolute inset-0 opacity-0 group-hover:opacity-80 transition-opacity" style={{ background: "#fff", borderRadius: "0.625rem" }} />
-                <span className="relative text-black">Get In Touch</span>
+              <Link to="/contact" className="btn-12">
+                <span>Get In Touch</span>
               </Link>
-              <Link to="/pricing" className="px-10 py-4 text-sm tracking-[0.12em] uppercase border transition-all duration-300 hover:bg-[var(--gold)] hover:text-black hover:border-[var(--gold)]" style={{ fontFamily: "'DM Sans',sans-serif", borderColor: "rgba(201,168,76,0.4)", color: "rgba(248,246,240,0.6)", borderRadius: "0.625rem" }}>
-                View Pricing
+              <Link to="/pricing" className="btn-12">
+                <span>View Pricing</span>
               </Link>
             </div>
           </motion.div>

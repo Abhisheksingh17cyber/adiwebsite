@@ -83,17 +83,9 @@ export function Navbar() {
           <div className="hidden lg:flex items-center">
             <button
               onClick={() => navigate("/contact")}
-              className="relative px-6 py-2.5 text-sm tracking-[0.1em] uppercase overflow-hidden group"
-              style={{ fontFamily: "'DM Sans', sans-serif", borderRadius: "0.625rem" }}
+              className="btn-12"
             >
-              <span className="absolute inset-0 border" style={{ borderColor: "var(--gold)", borderRadius: "0.625rem" }} />
-              <span
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ background: "var(--gold)", borderRadius: "0.625rem" }}
-              />
-              <span className="relative text-[var(--gold)] group-hover:text-black transition-colors duration-300 font-medium">
-                Get Started
-              </span>
+              <span>Get Started</span>
             </button>
           </div>
 
