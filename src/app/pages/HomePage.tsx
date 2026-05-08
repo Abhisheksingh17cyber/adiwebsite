@@ -5,6 +5,7 @@ import { MarqueeBanner } from "../components/MarqueeBanner";
 import { useState, useMemo } from "react";
 import Hyperspeed from "../components/Hyperspeed";
 import BorderGlow from '../components/BorderGlow';
+import TrueFocus from '../components/TrueFocus';
 
 const stats = [
   { value: "500+", label: "Videos Delivered" },
@@ -337,10 +338,22 @@ export default function HomePage() {
                 <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>Start Today</span>
                 <div className="h-px w-16" style={{ background: "var(--gold)" }} />
               </div>
-              <h2 className="mb-6" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,6vw,6rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.05 }}>
-                Ready to create
-                <br /><em className="shimmer-text" style={{ fontStyle: "italic" }}>something iconic?</em>
-              </h2>
+              <TrueFocus 
+                sentence="Ready to create something iconic?"
+                className="mb-8"
+                style={{ 
+                  fontFamily: "'Cormorant Garamond',serif", 
+                  fontSize: "clamp(2.5rem,5.5vw,5.5rem)", 
+                  fontWeight: 400, 
+                  color: "#f8f6f0", 
+                  lineHeight: 1.2,
+                  justifyContent: 'center'
+                }}
+                blurAmount={3}
+                borderColor="var(--gold)"
+                glowColor="rgba(201,168,76,0.3)"
+                pauseBetweenAnimations={1.5}
+              />
               <p className="mb-10" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(248,246,240,0.45)", lineHeight: 1.8, fontWeight: 300, maxWidth: "480px", margin: "0 auto 2.5rem" }}>
                 Let's talk about your project. No obligation, just a conversation about bringing your vision to life.
               </p>
