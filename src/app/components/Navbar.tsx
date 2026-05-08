@@ -36,13 +36,13 @@ export function Navbar() {
           backdropFilter: "blur(14px)",
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-28">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
               src={logoImg}
               alt="EditByAdi Logo"
-              className="h-14 w-auto object-contain"
+              className="h-20 w-auto object-contain"
               style={{ mixBlendMode: "screen", filter: "contrast(1.1) brightness(1.2)" }}
             />
           </Link>
