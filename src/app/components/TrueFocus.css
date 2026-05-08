@@ -2,9 +2,15 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  .focus-container {
+    gap: 0.5rem;
+  }
 }
 
 .focus-word {

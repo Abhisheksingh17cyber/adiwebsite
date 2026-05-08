@@ -331,7 +331,7 @@ export default function HomePage() {
       <section className="py-32 relative overflow-hidden" style={{ background: "#080808" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%,rgba(201,168,76,0.07) 0%,transparent 70%)" }} />
         <div className="max-w-4xl mx-auto px-6 relative">
-          <BorderGlow className="p-12 lg:p-20 text-center" borderRadius={32} glowIntensity={1.2}>
+          <BorderGlow className="px-6 py-12 lg:p-20 text-center" borderRadius={32} glowIntensity={1.2}>
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <div className="flex items-center justify-center gap-4 mb-8">
                 <div className="h-px w-16" style={{ background: "var(--gold)" }} />
