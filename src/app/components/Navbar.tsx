@@ -42,8 +42,8 @@ export function Navbar() {
             <img
               src={logoImg}
               alt="EditByAdi Logo"
-              className="h-10 w-auto object-contain"
-              style={{ mixBlendMode: "screen", filter: "contrast(1.1) brightness(1.15)" }}
+              className="h-14 w-auto object-contain"
+              style={{ mixBlendMode: "screen", filter: "contrast(1.1) brightness(1.2)" }}
             />
           </Link>
 
