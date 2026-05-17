@@ -1,65 +1,67 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Check, Sparkles, ArrowRight } from "lucide-react";
+import { Meteors } from "../components/Meteors";
 
 const plans = [
   {
-    name: "Starter",
-    price: "₹4,999",
+    name: "Starter Reel",
+    price: "Request",
     period: "per video",
-    desc: "Perfect for creators just getting started with professional editing.",
+    desc: "For short social media content, hooks, ads, or promos. Best for Instagram Reels, Shorts, TikTok.",
     features: [
-      "Up to 5 min final video",
-      "Basic colour correction",
-      "Text & titles",
-      "Background music sync",
-      "2 revision rounds",
-      "720p / 1080p delivery",
+      "Short-form AI video content",
+      "Social media optimised",
+      "Hook-driven creative direction",
+      "Editing, pacing & transitions",
+      "Sound design included",
+      "Platform-ready export",
     ],
     featured: false,
   },
   {
-    name: "Professional",
-    price: "₹12,999",
+    name: "AI Brand Ad",
+    price: "Request",
     period: "per video",
-    desc: "For brands and serious creators who want cinematic quality that converts.",
+    desc: "For brands that need premium product or service ads. Best for campaigns, launches, paid ads.",
     features: [
-      "Up to 15 min final video",
-      "Cinema-grade colour grading",
-      "Motion graphics & transitions",
-      "Sound design & mixing",
-      "Unlimited revisions",
-      "4K delivery + all formats",
-      "Rush delivery available",
-      "Dedicated editor",
+      "Cinematic AI brand visuals",
+      "Script & storyboard direction",
+      "Advanced AI video generation",
+      "Colour grading & sound design",
+      "Multiple format exports",
+      "Revision rounds included",
+      "Campaign-ready delivery",
+      "Custom creative style",
     ],
     featured: true,
   },
   {
-    name: "Agency",
-    price: "₹34,999",
-    period: "per month",
-    desc: "High-volume content production for agencies and power users.",
+    name: "Music Video / Story Film",
+    price: "Request",
+    period: "per project",
+    desc: "For artists, storytellers, and cinematic concepts. Best for music videos, emotional stories, narrative films.",
     features: [
-      "Up to 20 videos/month",
-      "All Professional features",
-      "Brand style guide adherence",
-      "Social media format exports",
-      "Priority turnaround (48hrs)",
-      "Monthly strategy call",
-      "Dedicated account manager",
-      "Raw file backup storage",
+      "Full concept development",
+      "AI cinematic scene generation",
+      "Narrative & emotional pacing",
+      "Music sync & sound design",
+      "Colour grading & finishing",
+      "Captions if needed",
+      "Final delivery all platforms",
+      "Custom project scope",
     ],
     featured: false,
   },
 ];
 
 const faqs = [
-  { q: "How long does a project take?", a: "Turnaround depends on complexity — Reels can be done in 48 hours, while longer cinematic edits may take 5–7 business days. We'll always confirm your timeline before starting." },
-  { q: "How many revisions do I get?", a: "Starter includes 2 rounds of revisions. Professional and Agency plans come with unlimited revisions until you're 100% satisfied." },
-  { q: "What format should I send footage in?", a: "Any format works — MP4, MOV, MXF, RAW files. We'll handle the rest. You can share via Google Drive, WeTransfer, or Dropbox." },
-  { q: "Do you work with international clients?", a: "Absolutely. We work with clients across the globe. All communication is online and file delivery is fully digital." },
-  { q: "Can I request a custom quote?", a: "Yes! If your project doesn't fit neatly into a plan, reach out via the contact page and we'll put together a tailored proposal." },
+  { q: "Can you make AI music videos?", a: "Yes. We create concept-based AI music videos, lyric visuals, performance-style scenes, and cinematic storytelling videos." },
+  { q: "Can you make ads for my brand?", a: "Yes. We create AI-powered brand ads, product ads, UGC-style ads, launch videos, and social media creatives." },
+  { q: "Do I need a script?", a: "No. You can send a rough idea and we can help develop the concept, script, storyboard, and visual direction." },
+  { q: "How long does it take?", a: "Short videos usually take a few days. Larger music videos or story films depend on complexity." },
+  { q: "Can you match a reference style?", a: "Yes. You can send reference videos, moodboards, brand colours, or examples, and we'll build the visual direction around them." },
+  { q: "Do you provide editing too?", a: "Yes. Final delivery includes editing, pacing, transitions, sound design, captions if needed, and export for your platform." },
 ];
 
 export default function PricingPage() {
@@ -92,7 +94,10 @@ export default function PricingPage() {
               <motion.div key={plan.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="relative p-10 lg:p-12 flex flex-col overflow-hidden"
                 style={{ background: plan.featured ? "rgba(201,168,76,0.055)" : "#0a0a0a", border: "1px solid", borderColor: plan.featured ? "rgba(201,168,76,0.4)" : "rgba(201,168,76,0.12)", borderRadius: "1.5rem" }}>
-                {plan.featured && <div className="absolute top-0 left-10 right-10 h-0.5" style={{ background: "var(--gold)" }} />}
+                
+                <Meteors number={15} />
+
+                {plan.featured && <div className="absolute top-0 left-10 right-10 h-0.5 z-10" style={{ background: "var(--gold)" }} />}
 
                 <div className="mb-8">
                   <div className="flex items-center justify-between mb-3">

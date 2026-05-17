@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link, NavLink, useNavigate } from "react-router";
+// @ts-expect-error - Figma asset import is handled by Vite plugin but lacks typings
 import logoImg from "figma:asset/23e0d09e-97ab-45a6-87ad-c17ac0d3a664-1.jpg";
 import { Menu, X } from "lucide-react";
 
@@ -36,14 +37,13 @@ export function Navbar() {
           backdropFilter: "blur(14px)",
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-24 lg:h-40">
+        <div className="w-full px-6 lg:px-20 xl:px-32 flex items-center justify-between h-16 lg:h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
               src={logoImg}
               alt="EditByAdi Logo"
-              className="h-20 lg:h-32 w-auto object-contain"
-              style={{ mixBlendMode: "screen", filter: "contrast(1.1) brightness(1.2)", transform: "scale(1.1)" }}
+              className="h-12 lg:h-20 w-auto object-contain mix-blend-screen scale-110 contrast-125 brightness-110"
             />
           </Link>
 
@@ -54,25 +54,17 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `text-sm tracking-[0.12em] uppercase transition-colors duration-300 relative group ${
-                    isActive ? "text-[var(--gold)]" : "text-white/60 hover:text-[var(--gold)]"
-                  }`
+                  `nav-gooey tracking-[0.12em] ${isActive ? "active" : ""}`
                 }
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
                 {({ isActive }) => (
                   <>
-                    {link.label}
-                    <span
-                      className="absolute -bottom-0.5 left-0 h-px transition-all duration-300"
-                      style={{
-                        background: "var(--gold)",
-                        width: isActive ? "100%" : "0%",
-                      }}
-                    />
-                    {!isActive && (
-                      <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[var(--gold)] group-hover:w-full transition-all duration-300" />
-                    )}
+                    <span className="relative z-10">{link.label}</span>
+                    <div className="c-button__blobs">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
                   </>
                 )}
               </NavLink>
@@ -83,9 +75,11 @@ export function Navbar() {
           <div className="hidden lg:flex items-center">
             <button
               onClick={() => navigate("/contact")}
-              className="btn-12"
+              className="btn-ripple"
             >
+              <i className="animation"></i>
               <span>Get Started</span>
+              <i className="animation"></i>
             </button>
           </div>
 
@@ -122,7 +116,7 @@ export function Navbar() {
                     to={link.to}
                     onClick={() => setMobileOpen(false)}
                     className="font-display text-4xl tracking-wide text-white/80 hover:text-[var(--gold)] transition-colors duration-300"
-                    style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                    style={{ fontFamily: "'Kugile', sans-serif" }}
                   >
                     {link.label}
                   </Link>
@@ -136,16 +130,27 @@ export function Navbar() {
                 <Link
                   to="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="mt-4 px-8 py-3 text-sm tracking-[0.15em] uppercase border inline-block text-[var(--gold)] hover:bg-[var(--gold)] hover:text-black transition-all duration-300"
-                  style={{ borderColor: "var(--gold)", fontFamily: "'DM Sans', sans-serif", borderRadius: "0.625rem" }}
+                  className="mt-4 btn-ripple"
                 >
-                  Get Started
+                  <i className="animation"></i>
+                  <span>Get Started</span>
+                  <i className="animation"></i>
                 </Link>
               </motion.div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <svg style={{ display: "block", height: 0, width: 0 }} version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur result="blur" stdDeviation="10" in="SourceGraphic"></feGaussianBlur>
+            <feColorMatrix result="goo" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" mode="matrix" in="blur"></feColorMatrix>
+            <feBlend in2="goo" in="SourceGraphic"></feBlend>
+          </filter>
+        </defs>
+      </svg>
     </>
   );
 }

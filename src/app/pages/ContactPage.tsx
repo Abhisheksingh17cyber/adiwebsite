@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { motion } from "motion/react";
 import { Send, Instagram, Youtube, Twitter, Mail, MessageCircle, Clock, MapPin } from "lucide-react";
 
@@ -23,7 +23,7 @@ export default function ContactPage() {
             <div className="h-px w-12" style={{ background: "var(--gold)" }} />
             <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>Get In Touch</span>
           </div>
-          <h1 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,6vw,7rem)", fontWeight: 300, color: "#f8f6f0", lineHeight: 1.05 }}>
+          <h1 style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "clamp(3rem,6vw,7rem)", fontWeight: 300, color: "#f8f6f0", lineHeight: 1.05 }}>
             Let's create something<br /><em style={{ color: "var(--gold)", fontStyle: "italic" }}>remarkable together.</em>
           </h1>
         </div>
@@ -45,7 +45,7 @@ export default function ContactPage() {
                   { Icon: Mail, label: "Email Us", value: "businesswithadityak@gmail.com", href: "mailto:businesswithadityak@gmail.com" },
                   { Icon: MessageCircle, label: "Call / WhatsApp", value: "7905158755", href: "https://wa.me/917905158755" },
                   { Icon: Clock, label: "Response Time", value: "Within 24 hours", href: "#" },
-                  { Icon: MapPin, label: "Based In", value: "India · Worldwide", href: "#" },
+                  { Icon: MapPin, label: "Based In", value: "India Â· Worldwide", href: "#" },
                 ].map(({ Icon, label, value, href }) => (
                   <a key={label} href={href} className="flex items-center gap-4 group">
                     <div className="w-10 h-10 flex items-center justify-center border transition-all duration-300 group-hover:border-[var(--gold)] group-hover:bg-[rgba(201,168,76,0.08)]" style={{ borderColor: "rgba(201,168,76,0.2)", borderRadius: "0.625rem" }}>
@@ -73,10 +73,10 @@ export default function ContactPage() {
 
               {/* Quote */}
               <div className="p-6" style={{ border: "1px solid rgba(201,168,76,0.15)", background: "rgba(201,168,76,0.03)", borderRadius: "1rem" }}>
-                <p style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.25rem", fontWeight: 400, color: "rgba(248,246,240,0.65)", lineHeight: 1.55, fontStyle: "italic" }}>
+                <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1.25rem", fontWeight: 400, color: "rgba(248,246,240,0.65)", lineHeight: 1.55, fontStyle: "italic" }}>
                   "Every great video starts with a single conversation."
                 </p>
-                <p className="mt-3" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", color: "var(--gold)", letterSpacing: "0.1em" }}>— Adi, Founder</p>
+                <p className="mt-3" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", color: "var(--gold)", letterSpacing: "0.1em" }}>â€” Adi, Founder</p>
               </div>
             </motion.div>
 
@@ -87,7 +87,7 @@ export default function ContactPage() {
                   <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ background: "rgba(201,168,76,0.12)", border: "1px solid var(--gold)" }}>
                     <Send size={22} style={{ color: "var(--gold)" }} />
                   </div>
-                  <h3 className="mb-3" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "2.2rem", fontWeight: 500, color: "#f8f6f0" }}>Message Sent!</h3>
+                  <h3 className="mb-3" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "2.2rem", fontWeight: 500, color: "#f8f6f0" }}>Message Sent!</h3>
                   <p style={{ fontFamily: "'DM Sans',sans-serif", color: "rgba(248,246,240,0.5)", fontSize: "0.9rem", fontWeight: 300 }}>We'll be in touch within 24 hours.</p>
                 </motion.div>
               ) : (
@@ -134,10 +134,10 @@ export default function ContactPage() {
                       onFocus={(e) => (e.target.style.borderColor = "rgba(201,168,76,0.55)")}
                       onBlur={(e) => (e.target.style.borderColor = "rgba(201,168,76,0.2)")}>
                       <option value="" style={{ background: "#111" }}>Select a budget range</option>
-                      <option value="under-5k" style={{ background: "#111" }}>Under ₹5,000</option>
-                      <option value="5k-15k" style={{ background: "#111" }}>₹5,000 – ₹15,000</option>
-                      <option value="15k-35k" style={{ background: "#111" }}>₹15,000 – ₹35,000</option>
-                      <option value="35k-plus" style={{ background: "#111" }}>₹35,000+</option>
+                      <option value="under-5k" style={{ background: "#111" }}>Under â‚¹5,000</option>
+                      <option value="5k-15k" style={{ background: "#111" }}>â‚¹5,000 â€“ â‚¹15,000</option>
+                      <option value="15k-35k" style={{ background: "#111" }}>â‚¹15,000 â€“ â‚¹35,000</option>
+                      <option value="35k-plus" style={{ background: "#111" }}>â‚¹35,000+</option>
                       <option value="discuss" style={{ background: "#111" }}>Let's discuss</option>
                     </select>
                   </div>

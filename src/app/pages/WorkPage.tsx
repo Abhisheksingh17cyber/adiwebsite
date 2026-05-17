@@ -4,15 +4,15 @@ import { Link } from "react-router";
 import { Play, ExternalLink, ArrowRight } from "lucide-react";
 
 const works = [
-  { id: 1, title: "Cinematic Brand Film", client: "LuxeBloom", category: "Brand & Commercial", image: "https://images.unsplash.com/photo-1628571201589-bd794b68071e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBmaWxtJTIwcHJvZHVjdGlvbiUyMGJlaGluZCUyMHNjZW5lc3xlbnwxfHx8fDE3NzgyNzU2OTh8MA&ixlib=rb-4.1.0&q=80&w=1080", featured: true },
-  { id: 2, title: "Social Media Content Pack", client: "TrendHouse", category: "Social Media", image: "https://images.unsplash.com/photo-1762535120786-76238d9eeb0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMGNvbnRlbnQlMjBjcmVhdG9yJTIwZmlsbWluZ3xlbnwxfHx8fDE3NzgyNzU3MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080", featured: false },
-  { id: 3, title: "Luxury Wedding Highlight", client: "Ananya & Vikram", category: "Wedding Film", image: "https://images.unsplash.com/photo-1770896686968-bf828a561a64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaW5lbWF0aWMlMjBwb3J0cmFpdCUyMGRhcmslMjBtb29keSUyMGxpZ2h0aW5nfGVufDF8fHx8MTc3ODI3NTcwMHww&ixlib=rb-4.1.0&q=80&w=1080", featured: false },
-  { id: 4, title: "Creative Studio Vlog Series", client: "Rahul Mehta", category: "YouTube & Long-Form", image: "https://images.unsplash.com/photo-1742046335792-060080d72460?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2aWRlbyUyMGVkaXRpbmclMjBjcmVhdGl2ZSUyMHdvcmtzcGFjZSUyMGRhcmslMjBhZXN0aGV0aWN8ZW58MXx8fHwxNzc4Mjc1Njk4fDA&ixlib=rb-4.1.0&q=80&w=1080", featured: false },
-  { id: 5, title: "Product Launch Commercial", client: "Natasha D'Souza", category: "Brand & Commercial", image: "https://images.unsplash.com/photo-1759563871375-a728c4e7218d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBicmFuZCUyMGNvbW1lcmNpYWwlMjB2aWRlbyUyMHNob290fGVufDF8fHx8MTc3ODI3NTY5OHww&ixlib=rb-4.1.0&q=80&w=1080", featured: false },
-  { id: 6, title: "Fashion Reel Campaign", client: "StyleForward", category: "Social Media", image: "https://images.unsplash.com/photo-1666858443985-fead1d59b4f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaW5lbWF0aWMlMjB2aWRlbyUyMGVkaXRpbmclMjBkYXJrJTIwc3R1ZGlvfGVufDF8fHx8MTc3ODI3NTY5OHww&ixlib=rb-4.1.0&q=80&w=1080", featured: false },
+  { id: 1, title: "AI Music Video — Concept Project", client: "Selected Work", category: "Music Videos", image: "https://images.unsplash.com/photo-1628571201589-bd794b68071e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: true },
+  { id: 2, title: "Brand Ad Campaign", client: "Selected Work", category: "Brand Ads", image: "https://images.unsplash.com/photo-1762535120786-76238d9eeb0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
+  { id: 3, title: "UGC Story Ad", client: "Selected Work", category: "UGC Ads", image: "https://images.unsplash.com/photo-1770896686968-bf828a561a64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
+  { id: 4, title: "Cinematic Story Film", client: "Selected Work", category: "Story Films", image: "https://images.unsplash.com/photo-1742046335792-060080d72460?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
+  { id: 5, title: "Product Visual Ad", client: "Selected Work", category: "Product Ads", image: "https://images.unsplash.com/photo-1759563871375-a728c4e7218d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
+  { id: 6, title: "Social Media Content Pack", client: "Selected Work", category: "Social Content", image: "https://images.unsplash.com/photo-1666858443985-fead1d59b4f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
 ];
 
-const categories = ["All", "Brand & Commercial", "Social Media", "Wedding Film", "YouTube & Long-Form"];
+const categories = ["All", "Music Videos", "Brand Ads", "UGC Ads", "Story Films", "Social Content", "Product Ads"];
 
 export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -31,10 +31,10 @@ export default function WorkPage() {
             <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>Portfolio</span>
           </div>
           <h1 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,6vw,7rem)", fontWeight: 300, color: "#f8f6f0", lineHeight: 1.05 }}>
-            Stories we've<br /><em style={{ color: "var(--gold)", fontStyle: "italic" }}>brought to life.</em>
+            Recent AI<br /><em style={{ color: "var(--gold)", fontStyle: "italic" }}>Video Work.</em>
           </h1>
           <p className="mt-5 max-w-xl" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(248,246,240,0.45)", lineHeight: 1.8, fontWeight: 300 }}>
-            A curated selection of our favourite projects — each one a unique story told with craft and intention.
+            A curated selection of AI-powered concept projects — music videos, brand ads, story films, and more.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent)" }} />
@@ -57,11 +57,17 @@ export default function WorkPage() {
             {filtered.map((work, i) => {
               const isFeatured = i === 0;
               return (
-                <motion.div key={work.id} layout initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.45, delay: i * 0.06 }}
+                <motion.div key={work.id} initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.35, delay: i * 0.05 }}
                   className={`relative overflow-hidden group cursor-pointer ${isFeatured ? "md:col-span-8 aspect-[16/9]" : "md:col-span-4 aspect-[4/3]"}`}
                   style={{ borderRadius: "1.25rem" }}
                   onMouseEnter={() => setHoveredId(work.id)} onMouseLeave={() => setHoveredId(null)}>
-                  <img src={work.image} alt={work.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img
+                    src={work.image}
+                    alt={work.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 transition-opacity duration-300" style={{ background: "linear-gradient(180deg,transparent 20%,rgba(8,8,8,0.88) 100%)", opacity: hoveredId === work.id ? 1 : 0.55 }} />
 
                   {hoveredId === work.id && (

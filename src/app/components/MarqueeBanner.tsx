@@ -1,3 +1,5 @@
+import ScrollVelocity from "./ScrollVelocity";
+
 export function MarqueeBanner() {
   const items = [
     "YouTube Videos",
@@ -12,39 +14,32 @@ export function MarqueeBanner() {
     "Event Highlights",
   ];
 
-  const doubled = [...items, ...items];
+  const content = (
+    <div className="flex items-center">
+      {items.map((item, i) => (
+        <span
+          key={i}
+          className="mx-8 flex items-center gap-8"
+        >
+          {item}
+          <span
+            className="inline-block w-2 h-2 rounded-full bg-[var(--gold)]"
+          />
+        </span>
+      ))}
+    </div>
+  );
 
   return (
-    <div
-      className="overflow-hidden py-5 relative"
-      style={{
-        background: "var(--gold)",
-        borderTop: "1px solid rgba(201,168,76,0.4)",
-        borderBottom: "1px solid rgba(201,168,76,0.4)",
-      }}
-    >
-      <div className="flex animate-marquee whitespace-nowrap" style={{ width: "max-content" }}>
-        {doubled.map((item, i) => (
-          <span
-            key={i}
-            className="mx-8 flex items-center gap-8"
-            style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontSize: "0.75rem",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              fontWeight: 500,
-              color: "#080808",
-            }}
-          >
-            {item}
-            <span
-              className="inline-block w-1.5 h-1.5 rounded-full"
-              style={{ background: "rgba(8,8,8,0.4)" }}
-            />
-          </span>
-        ))}
-      </div>
+    <div className="py-12 relative overflow-hidden">
+      <ScrollVelocity
+        texts={[content]}
+        velocity={40}
+        damping={50}
+        stiffness={400}
+        numCopies={4}
+        scrollerClassName="font-body text-[0.8rem] md:text-[0.9rem] tracking-[0.2em] uppercase font-medium text-[var(--gold)] opacity-80"
+      />
     </div>
   );
 }

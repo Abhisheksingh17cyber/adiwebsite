@@ -12,17 +12,17 @@ function NotFound() {
     <div className="min-h-screen flex flex-col items-center justify-center text-center px-6" style={{ background: "#080808" }}>
       <div
         className="gold-text-gradient block mb-4"
-        style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "8rem", fontWeight: 300, lineHeight: 1 }}
+        style={{ fontFamily: "'Kugile', sans-serif", fontSize: "8rem", fontWeight: 300, lineHeight: 1 }}
       >
         404
       </div>
-      <h2 className="mb-4" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "2rem", fontWeight: 400, color: "#f8f6f0" }}>
+      <h2 className="mb-4" style={{ fontFamily: "'Kugile', sans-serif", fontSize: "2rem", fontWeight: 400, color: "#f8f6f0" }}>
         Page not found
       </h2>
-      <p className="mb-8" style={{ fontFamily: "'DM Sans',sans-serif", color: "rgba(248,246,240,0.45)", fontWeight: 300 }}>
+      <p className="mb-8" style={{ fontFamily: "'Kugile', sans-serif", color: "rgba(248,246,240,0.45)", fontWeight: 300 }}>
         The page you're looking for doesn't exist.
       </p>
-      <a href="/" className="px-8 py-4 text-sm tracking-[0.12em] uppercase font-medium" style={{ fontFamily: "'DM Sans',sans-serif", background: "var(--gold)", color: "#080808" }}>
+      <a href="/" className="px-8 py-4 text-sm tracking-[0.12em] uppercase font-medium" style={{ fontFamily: "'Kugile', sans-serif", background: "var(--gold)", color: "#080808" }}>
         Go Home
       </a>
     </div>

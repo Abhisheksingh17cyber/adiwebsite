@@ -1,0 +1,24 @@
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  /* If not using window scroll, you'd add: height: 100vh; overflow-y: auto; overflow-x: hidden; */
+}
+
+.scroll-stack-inner {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-stack-card {
+  position: relative;
+  width: 100%;
+  transform-origin: top center;
+  z-index: 1;
+}
+
+.scroll-stack-end {
+  height: 50vh;
+  pointer-events: none;
+}

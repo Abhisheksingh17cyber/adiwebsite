@@ -84,6 +84,68 @@ body {
   100% { transform: translateX(-50%); }
 }
 
+/* Gooey Nav Link Styles */
+.nav-gooey {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-body), sans-serif;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  transition: all 500ms ease;
+  border-radius: 0.5rem;
+}
+
+.nav-gooey.active {
+  color: var(--gold);
+}
+
+.nav-gooey .c-button__blobs {
+  height: 100%;
+  filter: url(#goo);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  border-radius: 0.5rem;
+}
+
+.nav-gooey .c-button__blobs div {
+  background-color: var(--gold);
+  width: 34%;
+  height: 100%;
+  border-radius: 100%;
+  position: absolute;
+  transform: scale(1.4) translateY(125%) translateZ(0);
+  transition: all 500ms ease;
+}
+
+.nav-gooey .c-button__blobs div:nth-child(1) {
+  left: -5%;
+}
+
+.nav-gooey .c-button__blobs div:nth-child(2) {
+  left: 30%;
+  transition-delay: 60ms;
+}
+
+.nav-gooey .c-button__blobs div:nth-child(3) {
+  left: 66%;
+  transition-delay: 25ms;
+}
+
+.nav-gooey:hover {
+  color: #000;
+}
+
+.nav-gooey:hover .c-button__blobs div {
+  transform: scale(1.4) translateY(0) translateZ(0);
+}
+
 .animate-marquee {
   animation: marquee 25s linear infinite;
 }
@@ -139,6 +201,7 @@ textarea::placeholder {
 .btn-12 {
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: button;
+  appearance: button;
   background-color: transparent;
   background-image: none;
   color: var(--gold);
@@ -149,6 +212,7 @@ textarea::placeholder {
   line-height: 1;
   margin: 0;
   -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  mask-image: radial-gradient(#000, #fff);
   padding: 0;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -215,4 +279,53 @@ textarea::placeholder {
 .btn-12:hover:after,
 .btn-12:hover:before {
   --progress: 0;
+}
+
+/* From Uiverse.io by mi-series - adapted for EditByAdi */
+.btn-ripple {
+  outline: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  min-width: 180px;
+  border: 0;
+  border-radius: 99rem;
+  box-shadow: 0 4px 12px rgba(201, 168, 76, 0.2);
+  box-sizing: border-box;
+  padding: 16px 24px;
+  color: #000;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.btn-ripple:hover {
+  opacity: .95;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
+}
+
+.btn-ripple .animation {
+  border-radius: 100%;
+  animation: ripple 0.6s linear infinite;
+  /* positioning it within the button */
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2), 0 0 0 20px rgba(255, 255, 255, 0.2), 0 0 0 40px rgba(255, 255, 255, 0.2), 0 0 0 60px rgba(255, 255, 255, 0.2);
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.2), 0 0 0 40px rgba(255, 255, 255, 0.2), 0 0 0 60px rgba(255, 255, 255, 0.2), 0 0 0 80px rgba(255, 255, 255, 0);
+  }
 }

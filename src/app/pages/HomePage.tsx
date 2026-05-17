@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { Play, ArrowDown, ArrowRight, Film, Zap, Monitor, Quote } from "lucide-react";
+import { Play, ArrowRight, Film, Zap, Monitor, Quote, Music, Sparkles } from "lucide-react";
 import { MarqueeBanner } from "../components/MarqueeBanner";
 import { useState, useMemo } from "react";
 import Hyperspeed from "../components/Hyperspeed";
@@ -16,19 +16,34 @@ const stats = [
 
 const previewServices = [
   {
-    icon: Film,
-    title: "Cinematic Edits",
-    desc: "Breathtaking cinematic cuts with colour grading, sound design, and seamless transitions.",
-  },
-  {
-    icon: Zap,
-    title: "Reels & Shorts",
-    desc: "Hook-driven short-form edits built to go viral on Instagram, YouTube Shorts & TikTok.",
+    icon: Music,
+    title: "Music Videos",
+    desc: "Cinematic AI visuals for artists, songs, lyric videos, and concept-based music films.",
   },
   {
     icon: Monitor,
-    title: "Brand & Ad Films",
-    desc: "Premium commercial edits that communicate your brand's value and drive conversions.",
+    title: "Brand Ads",
+    desc: "High-impact AI commercials for products, services, launches, and campaigns.",
+  },
+  {
+    icon: Zap,
+    title: "UGC Ads",
+    desc: "Natural, scroll-stopping ad creatives designed for TikTok, Instagram, YouTube Shorts, and Meta ads.",
+  },
+  {
+    icon: Film,
+    title: "Story Films",
+    desc: "Short cinematic films, visual stories, fictional scenes, emotional narratives, and social awareness videos.",
+  },
+  {
+    icon: ArrowRight,
+    title: "Social Media Content",
+    desc: "AI-generated reels, shorts, hooks, promos, explainers, and viral concept videos.",
+  },
+  {
+    icon: Sparkles,
+    title: "Product Visuals",
+    desc: "Premium product shots, lifestyle visuals, beauty ads, fashion films, and e-commerce content.",
   },
 ];
 
@@ -143,69 +158,45 @@ export default function HomePage() {
         {/* Subtle centre vignette so copy pops */}
         <div className="absolute inset-0 z-[2] pointer-events-none" style={{ background: "radial-gradient(ellipse 85% 70% at 50% 45%, transparent 40%, rgba(0,0,0,0.45) 100%)" }} />
 
-        {/* side accent lines */}
-        <div className="absolute top-0 left-[8%] w-px h-48 z-[3]" style={{ background: "linear-gradient(180deg,transparent,var(--gold),transparent)", opacity: 0.5 }} />
-        <div className="absolute bottom-0 right-[8%] w-px h-48 z-[3]" style={{ background: "linear-gradient(0deg,transparent,var(--gold),transparent)", opacity: 0.5 }} />
+        <div className="relative z-10 w-full px-6 lg:px-20 xl:px-32 pt-36 pb-24">
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-24">
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="flex items-center gap-4 mb-8">
-            <div className="h-px w-12" style={{ background: "var(--gold)" }} />
-            <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>
-              Premium Video Editing Agency
-            </span>
-          </motion.div>
-
-          <div className="overflow-hidden mb-3">
-            <motion.h1 initial={{ y: 110, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="text-white" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,8vw,9rem)", fontWeight: 300, lineHeight: 1, letterSpacing: "-0.02em" }}>
-              We Edit.
-            </motion.h1>
-          </div>
-          <div className="overflow-hidden mb-3">
-            <motion.h1 initial={{ y: 110, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="shimmer-text" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,8vw,9rem)", fontWeight: 600, lineHeight: 1, fontStyle: "italic", letterSpacing: "-0.02em" }}>
-              You Shine.
-            </motion.h1>
-          </div>
-          <div className="overflow-hidden mb-12">
-            <motion.h1 initial={{ y: 110, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="text-white/25" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,8vw,9rem)", fontWeight: 300, lineHeight: 1, letterSpacing: "-0.02em" }}>
-              Always.
-            </motion.h1>
-          </div>
-
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.9 }}
-            className="flex flex-col items-start gap-8">
-            <p className="max-w-md" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(248,246,240,0.5)", lineHeight: 1.85, fontWeight: 300 }}>
-              Transforming raw footage into cinematic masterpieces. Precision editing for creators, brands, and businesses who refuse to settle for anything less than extraordinary.
-            </p>
-            <div className="flex items-center gap-5">
-              <Link to="/contact" className="btn-12">
-                <span>Start Your Project</span>
-              </Link>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12 w-full">
+            <div>
+              <div className="overflow-hidden mb-3">
+                <motion.h1 initial={{ y: 110, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-white" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,8vw,9rem)", fontWeight: 300, lineHeight: 1, letterSpacing: "-0.02em" }}>
+                  AI Videos.
+                </motion.h1>
+              </div>
+              <div className="overflow-hidden mb-3">
+                <motion.h1 initial={{ y: 110, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  className="shimmer-text" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,8vw,9rem)", fontWeight: 600, lineHeight: 1, fontStyle: "italic", letterSpacing: "-0.02em" }}>
+                  Your Ideas.
+                </motion.h1>
+              </div>
+              <div className="overflow-hidden mb-12 lg:mb-4">
+                <motion.h1 initial={{ y: 110, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-white/25" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(3rem,8vw,9rem)", fontWeight: 300, lineHeight: 1, letterSpacing: "-0.02em" }}>
+                  Cinematic.
+                </motion.h1>
+              </div>
             </div>
-          </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.9 }}
+              className="flex flex-col items-start gap-8 lg:pb-8">
+              <p className="max-w-md" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(248,246,240,0.5)", lineHeight: 1.85, fontWeight: 300 }}>
+                We create AI-powered music videos, brand ads, UGC ads, story films, and social content for creators, artists, and businesses — faster, sharper, and more affordable than traditional production.
+              </p>
+              <div className="flex items-center gap-5">
+                <Link to="/contact" className="btn-12">
+                  <span>Start Your Project</span>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
-        {/* Stats bar */}
-        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 1.1 }}
-          className="relative z-10 border-t" style={{ borderColor: "rgba(201,168,76,0.2)" }}>
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="grid grid-cols-2 lg:grid-cols-4 border-l border-r lg:border-l-0 lg:border-r-0" style={{ borderColor: "rgba(201,168,76,0.15)" }}>
-              {stats.map((stat, i) => (
-                <div key={stat.label} 
-                  className={`py-10 px-6 text-center border-[rgba(201,168,76,0.15)] 
-                    ${i % 2 === 0 ? 'border-r' : ''} 
-                    ${i < 2 ? 'border-b' : ''} 
-                    lg:border-b-0 lg:border-r lg:last:border-r-0`}
-                >
-                  <div className="gold-text-gradient block" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: 600, lineHeight: 1, marginBottom: "0.5rem" }}>{stat.value}</div>
-                  <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.68rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)" }}>{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+
 
       </section>
 
@@ -220,7 +211,7 @@ export default function HomePage() {
                 <div className="h-px w-12" style={{ background: "var(--gold)" }} />
                 <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>What We Do</span>
               </div>
-              <h2 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(2.5rem,4.5vw,4.5rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.1 }}>
+              <h2 style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "clamp(2.5rem,4.5vw,4.5rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.1 }}>
                 Crafted with <em style={{ color: "var(--gold)", fontStyle: "italic" }}>precision</em>
                 <br />& purpose.
               </h2>
@@ -238,7 +229,6 @@ export default function HomePage() {
                 <motion.div key={svc.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                   className="group relative p-8 lg:p-10 overflow-hidden" style={{ background: "#0a0a0a", border: "1px solid rgba(201,168,76,0.12)", borderRadius: "1.25rem" }}>
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "var(--gold-subtle)", borderRadius: "1.25rem" }} />
-                  <div className="absolute top-0 left-8 right-8 h-px origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: "var(--gold)" }} />
                   <div className="relative">
                     <div className="w-12 h-12 flex items-center justify-center border mb-6" style={{ borderColor: "rgba(201,168,76,0.25)", color: "var(--gold)", borderRadius: "0.625rem" }}>
                       <Icon size={20} />
@@ -262,7 +252,7 @@ export default function HomePage() {
                 <div className="h-px w-12" style={{ background: "var(--gold)" }} />
                 <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>Featured Work</span>
               </div>
-              <h2 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(2.5rem,4.5vw,4.5rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.1 }}>
+              <h2 style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "clamp(2.5rem,4.5vw,4.5rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.1 }}>
                 Stories we've<br /><em style={{ color: "var(--gold)", fontStyle: "italic" }}>brought to life.</em>
               </h2>
             </div>
@@ -290,7 +280,7 @@ export default function HomePage() {
                   )}
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "4px" }}>{work.category}</p>
-                    <h3 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "1.5rem", fontWeight: 500, color: "#f8f6f0" }}>{work.title}</h3>
+                    <h3 style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1.5rem", fontWeight: 500, color: "#f8f6f0" }}>{work.title}</h3>
                   </div>
                 </motion.div>
               </Link>
@@ -307,13 +297,13 @@ export default function HomePage() {
             <div className="h-px w-12" style={{ background: "var(--gold)" }} />
             <span style={{ color: "var(--gold)", fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase" }}>Client Stories</span>
           </div>
-          <h2 className="mb-12" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(2.5rem,4.5vw,4.5rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.1 }}>
+          <h2 className="mb-12 text-center" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(2.5rem,4vw,3.5rem)", fontWeight: 400, color: "#f8f6f0", lineHeight: 1.1 }}>
             Voices that<br /><em style={{ color: "var(--gold)", fontStyle: "italic" }}>inspire us.</em>
           </h2>
 
           <div className="p-10 lg:p-14 relative" style={{ background: "rgba(201,168,76,0.04)", border: "1px solid rgba(201,168,76,0.14)", borderRadius: "1.5rem" }}>
             <div className="absolute top-8 right-10 opacity-10"><Quote size={72} style={{ color: "var(--gold)" }} /></div>
-            <p className="mb-8" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(1.3rem,2.5vw,1.9rem)", fontWeight: 400, color: "rgba(248,246,240,0.85)", lineHeight: 1.65, fontStyle: "italic", maxWidth: "760px" }}>
+            <p className="mb-8" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "clamp(1.3rem,2.5vw,1.9rem)", fontWeight: 400, color: "rgba(248,246,240,0.85)", lineHeight: 1.65, fontStyle: "italic", maxWidth: "760px" }}>
               "{testimonials[activeTestimonial].quote}"
             </p>
             <div className="flex items-center gap-4">
@@ -328,7 +318,7 @@ export default function HomePage() {
           </div>
           <div className="flex items-center gap-2 mt-6">
             {testimonials.map((_, i) => (
-              <button key={i} onClick={() => setActiveTestimonial(i)} className="transition-all duration-300 h-0.5" style={{ width: i === activeTestimonial ? "28px" : "8px", background: i === activeTestimonial ? "var(--gold)" : "rgba(201,168,76,0.25)" }} />
+              <button key={i} title={`View testimonial ${i + 1}`} onClick={() => setActiveTestimonial(i)} className="transition-all duration-300 h-0.5" style={{ width: i === activeTestimonial ? "28px" : "8px", background: i === activeTestimonial ? "var(--gold)" : "rgba(201,168,76,0.25)" }} />
             ))}
           </div>
         </div>
@@ -349,7 +339,7 @@ export default function HomePage() {
                 sentence="Ready to create something iconic?"
                 className="mb-8"
                 style={{ 
-                  fontFamily: "'Cormorant Garamond',serif", 
+                  fontFamily: "'DM Sans',sans-serif", 
                   fontSize: "clamp(2.5rem,5.5vw,5.5rem)", 
                   fontWeight: 400, 
                   color: "#f8f6f0", 
@@ -362,7 +352,7 @@ export default function HomePage() {
                 pauseBetweenAnimations={1.5}
               />
               <p className="mb-10" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "1rem", color: "rgba(248,246,240,0.45)", lineHeight: 1.8, fontWeight: 300, maxWidth: "480px", margin: "0 auto 2.5rem" }}>
-                Let's talk about your project. No obligation, just a conversation about bringing your vision to life.
+                Send your concept, product, song, or script — and we'll help you shape it into a cinematic AI video ready for your audience.
               </p>
               <div className="flex items-center justify-center gap-5 flex-wrap">
                 <Link to="/contact" className="btn-12">
