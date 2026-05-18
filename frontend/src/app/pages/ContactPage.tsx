@@ -87,8 +87,12 @@ export default function ContactPage() {
               <div>
                 <p className="mb-4" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(248,246,240,0.3)" }}>Follow Our Work</p>
                 <div className="flex items-center gap-3">
-                  {[Instagram, Youtube, Twitter].map((Icon, i) => (
-                    <a key={i} href="#" className="w-10 h-10 flex items-center justify-center border transition-all duration-300 hover:border-[var(--gold)] hover:bg-[var(--gold)] group" style={{ borderColor: "rgba(201,168,76,0.2)", borderRadius: "0.625rem" }}>
+                  {[
+                    { Icon: Instagram, name: "Instagram" },
+                    { Icon: Youtube, name: "YouTube" },
+                    { Icon: Twitter, name: "Twitter" }
+                  ].map(({ Icon, name }, i) => (
+                    <a key={i} href="#" title={name} aria-label={name} className="w-10 h-10 flex items-center justify-center border transition-all duration-300 hover:border-[var(--gold)] hover:bg-[var(--gold)] group" style={{ borderColor: "rgba(201,168,76,0.2)", borderRadius: "0.625rem" }}>
                       <Icon size={15} className="group-hover:text-black transition-colors" style={{ color: "var(--gold)" }} />
                     </a>
                   ))}
