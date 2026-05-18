@@ -15,7 +15,7 @@ export default function ContactPage() {
     setLoading(true);
     setError("");
     try {
-      const response = await fetch(import.meta.env.VITE_API_URL || "http://localhost:5000/api/contact", {
+      const response = await fetch(((import.meta as any).env).VITE_API_URL || "http://localhost:5000/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -151,8 +151,8 @@ export default function ContactPage() {
 
                   {/* Budget */}
                   <div>
-                    <label className="block mb-2" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.68rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(248,246,240,0.35)" }}>Estimated Budget</label>
-                    <select value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })}
+                    <label htmlFor="budget" className="block mb-2" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.68rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(248,246,240,0.35)" }}>Estimated Budget</label>
+                    <select id="budget" title="Estimated Budget" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })}
                       className="w-full px-5 py-4 bg-transparent outline-none transition-all duration-300 appearance-none cursor-pointer"
                       style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.9rem", color: form.budget ? "#f8f6f0" : "rgba(248,246,240,0.25)", border: "1px solid rgba(201,168,76,0.2)", background: "#0a0a0a", borderRadius: "0.625rem" }}
                       onFocus={(e) => (e.target.style.borderColor = "rgba(201,168,76,0.55)")}
