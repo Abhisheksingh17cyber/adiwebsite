@@ -1,12 +1,9 @@
-import express from "express";
-import cors from "cors";
-import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-
-dotenv.config();
+const express = require("express");
+const cors = require("cors");
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
@@ -25,7 +22,6 @@ app.post("/api/contact", async (req, res) => {
   }
 
   try {
-    // Configure Nodemailer transporter (Configure credentials in your .env file)
     const transporter = nodemailer.createTransport({
       service: process.env.EMAIL_SERVICE || "gmail",
       auth: {
@@ -43,7 +39,7 @@ app.post("/api/contact", async (req, res) => {
         Email: ${email}
         Project Type: ${type || "Not Specified"}
         Estimated Budget: ${budget || "Not Specified"}
-        
+
         Message:
         ${message}
       `,
@@ -63,15 +59,8 @@ app.post("/api/contact", async (req, res) => {
     return res.status(200).json({ success: true, message: "Message sent successfully!" });
   } catch (error) {
     console.error("Nodemailer error:", error);
-    // In production, we'll return success: false, but to let the form work even without configured emails:
     return res.status(500).json({ success: false, error: "Failed to send email. Check your SMTP configuration." });
   }
 });
 
-if (process.env.NODE_ENV !== "production") {
-  app.listen(PORT, () => {
-    console.log(`Server running securely on port ${PORT}`);
-  });
-}
-
-export default app;
+module.exports = app;
