@@ -1,24 +1,36 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { Play, ExternalLink, ArrowRight } from "lucide-react";
+import { Play, ArrowRight, X } from "lucide-react";
 
 const works = [
-  { id: 1, title: "AI Music Video — Concept Project", client: "Selected Work", category: "Music Videos", image: "https://images.unsplash.com/photo-1628571201589-bd794b68071e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: true },
-  { id: 2, title: "Brand Ad Campaign", client: "Selected Work", category: "Brand Ads", image: "https://images.unsplash.com/photo-1762535120786-76238d9eeb0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
-  { id: 3, title: "UGC Story Ad", client: "Selected Work", category: "UGC Ads", image: "https://images.unsplash.com/photo-1770896686968-bf828a561a64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
-  { id: 4, title: "Cinematic Story Film", client: "Selected Work", category: "Story Films", image: "https://images.unsplash.com/photo-1742046335792-060080d72460?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
-  { id: 5, title: "Product Visual Ad", client: "Selected Work", category: "Product Ads", image: "https://images.unsplash.com/photo-1759563871375-a728c4e7218d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
-  { id: 6, title: "Social Media Content Pack", client: "Selected Work", category: "Social Content", image: "https://images.unsplash.com/photo-1666858443985-fead1d59b4f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
+  { id: 1, title: "Clothing Promo", client: "Selected Work", category: "Brand Ads", video: "/videos/CLOTHING PROMO.mp4" },
+  { id: 2, title: "UGC Ad", client: "Selected Work", category: "UGC Ads", video: "/videos/UGC AD.mp4" },
+  { id: 3, title: "AI Documentary Style Edit", client: "Selected Work", category: "Story Films", video: "/videos/AI DOCUMENTARY STYLE EDIT.mp4" },
+  { id: 4, title: "Cartoon Ad for Detergent", client: "Selected Work", category: "Brand Ads", video: "/videos/CARTOON AD FOR DETERGENT.mp4" },
+  { id: 5, title: "UGC Ad — Lip Plump", client: "Selected Work", category: "UGC Ads", video: "/videos/UGC AD - LIP PLUMP.mp4" },
 ];
 
-const categories = ["All", "Music Videos", "Brand Ads", "UGC Ads", "Story Films", "Social Content", "Product Ads"];
+const categories = ["All", "Brand Ads", "UGC Ads", "Story Films"];
 
 export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const modalVideoRef = useRef<HTMLVideoElement>(null);
 
   const filtered = activeCategory === "All" ? works : works.filter((w) => w.category === activeCategory);
+
+  const openVideo = useCallback((videoSrc: string) => {
+    setActiveVideo(videoSrc);
+  }, []);
+
+  const closeVideo = useCallback(() => {
+    if (modalVideoRef.current) {
+      modalVideoRef.current.pause();
+    }
+    setActiveVideo(null);
+  }, []);
 
   return (
     <>
@@ -60,32 +72,36 @@ export default function WorkPage() {
                 <motion.div key={work.id} initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.35, delay: i * 0.05 }}
                   className={`relative overflow-hidden group cursor-pointer ${isFeatured ? "md:col-span-8 aspect-[16/9]" : "md:col-span-4 aspect-[4/3]"}`}
                   style={{ borderRadius: "1.25rem" }}
+                  onClick={() => openVideo(work.video)}
                   onMouseEnter={() => setHoveredId(work.id)} onMouseLeave={() => setHoveredId(null)}>
-                  <img
-                    src={work.image}
-                    alt={work.title}
-                    loading="lazy"
-                    decoding="async"
+                  <video
+                    src={work.video}
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    onMouseEnter={(e) => (e.currentTarget as HTMLVideoElement).play().catch(() => {})}
+                    onMouseLeave={(e) => { const v = e.currentTarget as HTMLVideoElement; v.pause(); v.currentTime = 0; }}
                   />
                   <div className="absolute inset-0 transition-opacity duration-300" style={{ background: "linear-gradient(180deg,transparent 20%,rgba(8,8,8,0.88) 100%)", opacity: hoveredId === work.id ? 1 : 0.55 }} />
 
-                  {hoveredId === work.id && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ border: "2px solid var(--gold)", background: "rgba(201,168,76,0.15)" }}>
-                        <Play size={18} fill="var(--gold)" color="var(--gold)" />
-                      </div>
+                  {/* Play button — always visible */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300"
+                      style={{
+                        border: "2px solid var(--gold)",
+                        background: hoveredId === work.id ? "rgba(201,168,76,0.25)" : "rgba(201,168,76,0.1)",
+                        transform: hoveredId === work.id ? "scale(1.15)" : "scale(1)",
+                      }}>
+                      <Play size={18} fill="var(--gold)" color="var(--gold)" />
                     </div>
-                  )}
+                  </div>
 
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "3px" }}>{work.category}</p>
                     <h3 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: isFeatured ? "2rem" : "1.4rem", fontWeight: 500, color: "#f8f6f0" }}>{work.title}</h3>
                     <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", color: "rgba(248,246,240,0.4)", marginTop: "3px" }}>{work.client}</p>
-                  </div>
-
-                  <div className="absolute top-4 right-4 transition-all duration-300" style={{ opacity: hoveredId === work.id ? 1 : 0 }}>
-                    <ExternalLink size={16} style={{ color: "var(--gold)" }} />
                   </div>
                 </motion.div>
               );
@@ -104,6 +120,41 @@ export default function WorkPage() {
           </div>
         </div>
       </section>
+
+      {/* ─── VIDEO MODAL ──────────────────────────────────────── */}
+      {activeVideo && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center"
+          style={{ background: "rgba(0,0,0,0.92)", backdropFilter: "blur(12px)" }}
+          onClick={closeVideo}
+        >
+          <button
+            onClick={closeVideo}
+            className="absolute top-6 right-6 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 z-10"
+            style={{ background: "rgba(201,168,76,0.15)", border: "1px solid rgba(201,168,76,0.4)" }}
+          >
+            <X size={20} style={{ color: "var(--gold)" }} />
+          </button>
+
+          <div
+            className="w-full max-w-5xl mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <video
+              ref={modalVideoRef}
+              src={activeVideo}
+              controls
+              autoPlay
+              playsInline
+              className="w-full rounded-2xl"
+              style={{ maxHeight: "80vh", background: "#000" }}
+            />
+          </div>
+        </motion.div>
+      )}
     </>
   );
 }
