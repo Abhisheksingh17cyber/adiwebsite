@@ -10,9 +10,6 @@ module.exports = async function handler(req, res) {
   return res.status(200).json({
     status: "healthy",
     message: "API is up and running!",
-    endpoints: {
-      health: "/api/health",
-      contact: "/api/contact (POST)",
-    },
+    timestamp: new Date().toISOString(),
   });
 };

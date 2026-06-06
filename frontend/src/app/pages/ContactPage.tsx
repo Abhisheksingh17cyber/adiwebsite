@@ -15,7 +15,7 @@ export default function ContactPage() {
     setLoading(true);
     setError("");
     try {
-      const response = await fetch(((import.meta as any).env).VITE_API_URL || "http://localhost:5000/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,8 +30,7 @@ export default function ContactPage() {
         setError(data.error || "Something went wrong. Please try again.");
       }
     } catch (err) {
-      // Fallback to successful state for seamless visual flow
-      setSubmitted(true);
+      setError("Network error. Please check your connection and try again.");
     } finally {
       setLoading(false);
     }
