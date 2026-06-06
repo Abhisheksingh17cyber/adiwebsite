@@ -1,8 +1,6 @@
 node_modules
 dist
 package-lock.json
-videos/
-frontend/public/videos/
 backend/node_modules
 
 # Environment variables (secrets — never commit these)
