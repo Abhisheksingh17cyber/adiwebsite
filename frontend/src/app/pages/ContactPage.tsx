@@ -161,10 +161,10 @@ export default function ContactPage() {
                       onFocus={(e) => (e.target.style.borderColor = "rgba(201,168,76,0.55)")}
                       onBlur={(e) => (e.target.style.borderColor = "rgba(201,168,76,0.2)")}>
                       <option value="" style={{ background: "#111" }}>Select a budget range</option>
-                      <option value="under-5k" style={{ background: "#111" }}>Under â‚¹5,000</option>
-                      <option value="5k-15k" style={{ background: "#111" }}>â‚¹5,000 â€“ â‚¹15,000</option>
-                      <option value="15k-35k" style={{ background: "#111" }}>â‚¹15,000 â€“ â‚¹35,000</option>
-                      <option value="35k-plus" style={{ background: "#111" }}>â‚¹35,000+</option>
+                      <option value="under-200" style={{ background: "#111" }}>Under $200</option>
+                      <option value="200-500" style={{ background: "#111" }}>$200 – $500</option>
+                      <option value="500-1200" style={{ background: "#111" }}>$500 – $1,200</option>
+                      <option value="1200-plus" style={{ background: "#111" }}>$1,200+</option>
                       <option value="discuss" style={{ background: "#111" }}>Let's discuss</option>
                     </select>
                   </div>

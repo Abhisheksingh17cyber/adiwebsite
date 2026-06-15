@@ -5,10 +5,10 @@ import { Meteors } from "../components/Meteors";
 
 const plans = [
   {
-    name: "Starter Reel",
+    name: "Short-Form Content",
     price: "Request",
     period: "per video",
-    desc: "For short social media content, hooks, ads, or promos. Best for Instagram Reels, Shorts, TikTok.",
+    desc: "For short social media content, hooks, ads, and promos. Best for Instagram Reels, Shorts, and TikTok.",
     features: [
       "Short-form AI video content",
       "Social media optimised",
@@ -20,10 +20,10 @@ const plans = [
     featured: false,
   },
   {
-    name: "AI Brand Ad",
+    name: "Brand Ads",
     price: "Request",
     period: "per video",
-    desc: "For brands that need premium product or service ads. Best for campaigns, launches, paid ads.",
+    desc: "For brands that need premium product or service ads. Best for campaigns, launches, and paid ads.",
     features: [
       "Cinematic AI brand visuals",
       "Script & storyboard direction",
@@ -37,10 +37,10 @@ const plans = [
     featured: true,
   },
   {
-    name: "Music Video / Story Film",
+    name: "Cinematic Projects",
     price: "Request",
     period: "per project",
-    desc: "For artists, storytellers, and cinematic concepts. Best for music videos, emotional stories, narrative films.",
+    desc: "For artists, storytellers, and cinematic concepts. Best for music videos, emotional stories, and narrative films.",
     features: [
       "Full concept development",
       "AI cinematic scene generation",
@@ -54,6 +54,7 @@ const plans = [
     featured: false,
   },
 ];
+
 
 const faqs = [
   { q: "Can you make AI music videos?", a: "Yes. We create concept-based AI music videos, lyric visuals, performance-style scenes, and cinematic storytelling videos." },
