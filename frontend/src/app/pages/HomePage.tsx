@@ -83,6 +83,62 @@ const portfolioPreviews = [
     video: "/videos/UGC AD - LIP PLUMP.mp4",
     span: "md:col-span-4",
   },
+  {
+    id: 6,
+    title: "AI Documentary Video",
+    category: "Story Film",
+    video: "/videos/ai doctumantry video.mp4",
+    span: "md:col-span-6",
+  },
+  {
+    id: 7,
+    title: "AI Story Telling",
+    category: "Story Film",
+    video: "/videos/ai story telling.mp4",
+    span: "md:col-span-6",
+  },
+  {
+    id: 8,
+    title: "Baby AI Video",
+    category: "AI Video",
+    video: "/videos/baby ai vide.mp4",
+    span: "md:col-span-4",
+  },
+  {
+    id: 9,
+    title: "Brand Ad AI Video",
+    category: "Brand & Commercial",
+    video: "/videos/brand ad ai video.mp4",
+    span: "md:col-span-4",
+  },
+  {
+    id: 10,
+    title: "Personalised Brand AI Video",
+    category: "Brand & Commercial",
+    video: "/videos/personalise brand ai video.mp4",
+    span: "md:col-span-4",
+  },
+  {
+    id: 11,
+    title: "Personalised AI Video",
+    category: "AI Video",
+    video: "/videos/personalised ai video.mp4",
+    span: "md:col-span-6",
+  },
+  {
+    id: 12,
+    title: "Personalised Brand Video",
+    category: "Brand & Commercial",
+    video: "/videos/personalised brand ai video.mp4",
+    span: "md:col-span-6",
+  },
+  {
+    id: 13,
+    title: "WhatsApp Video",
+    category: "AI Video",
+    video: "/videos/WhatsApp Video 2026-06-28 at 4.44.28 PM.mp4",
+    span: "md:col-span-12",
+  },
 ];
 
 const testimonials = [

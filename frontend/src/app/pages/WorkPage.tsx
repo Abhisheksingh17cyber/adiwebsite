@@ -9,9 +9,17 @@ const works = [
   { id: 3, title: "AI Documentary Style Edit", client: "Selected Work", category: "Story Films", video: "/videos/AI DOCUMENTARY STYLE EDIT.mp4" },
   { id: 4, title: "Cartoon Ad for Detergent", client: "Selected Work", category: "Brand Ads", video: "/videos/CARTOON AD FOR DETERGENT.mp4" },
   { id: 5, title: "UGC Ad — Lip Plump", client: "Selected Work", category: "UGC Ads", video: "/videos/UGC AD - LIP PLUMP.mp4" },
+  { id: 6, title: "AI Documentary Video", client: "Selected Work", category: "Story Films", video: "/videos/ai doctumantry video.mp4" },
+  { id: 7, title: "AI Story Telling", client: "Selected Work", category: "Story Films", video: "/videos/ai story telling.mp4" },
+  { id: 8, title: "Baby AI Video", client: "Selected Work", category: "AI Videos", video: "/videos/baby ai vide.mp4" },
+  { id: 9, title: "Brand Ad AI Video", client: "Selected Work", category: "Brand Ads", video: "/videos/brand ad ai video.mp4" },
+  { id: 10, title: "Personalised Brand AI Video", client: "Selected Work", category: "Brand Ads", video: "/videos/personalise brand ai video.mp4" },
+  { id: 11, title: "Personalised AI Video", client: "Selected Work", category: "AI Videos", video: "/videos/personalised ai video.mp4" },
+  { id: 12, title: "Personalised Brand Video", client: "Selected Work", category: "Brand Ads", video: "/videos/personalised brand ai video.mp4" },
+  { id: 13, title: "WhatsApp Video", client: "Selected Work", category: "AI Videos", video: "/videos/WhatsApp Video 2026-06-28 at 4.44.28 PM.mp4" },
 ];
 
-const categories = ["All", "Brand Ads", "UGC Ads", "Story Films"];
+const categories = ["All", "Brand Ads", "UGC Ads", "Story Films", "AI Videos"];
 
 export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState("All");
