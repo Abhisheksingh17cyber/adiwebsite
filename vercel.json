@@ -1,7 +1,7 @@
 {
   "version": 2,
   "installCommand": "npm install && npm install --prefix frontend",
-  "buildCommand": "git lfs install && git lfs pull && npm run build --prefix frontend",
+  "buildCommand": "git remote set-url origin https://github.com/Abhisheksingh17cyber/adiwebsite.git && git lfs install && git lfs pull && npm run build --prefix frontend",
   "outputDirectory": "frontend/dist",
   "cleanUrls": true,
   "functions": {
