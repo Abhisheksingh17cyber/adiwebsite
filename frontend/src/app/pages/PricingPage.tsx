@@ -101,17 +101,8 @@ export default function PricingPage() {
                 {plan.featured && <div className="absolute top-0 left-10 right-10 h-0.5 z-10" style={{ background: "var(--gold)" }} />}
 
                 <div className="mb-8">
-                  <div className="flex items-center justify-between mb-3">
-                    <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: plan.featured ? "var(--gold)" : "rgba(248,246,240,0.4)" }}>{plan.name}</span>
-                    {plan.featured && (
-                      <div className="flex items-center gap-1">
-                        <Sparkles size={11} style={{ color: "var(--gold)" }} />
-                        <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold)" }}>Popular</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className={`${plan.featured ? "gold-text-gradient" : ""} block`} style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "3.2rem", fontWeight: 500, color: plan.featured ? undefined : "#f8f6f0", lineHeight: 1 }}>{plan.price}</div>
-                  <div className="mt-1 mb-4" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.72rem", color: "rgba(248,246,240,0.3)", letterSpacing: "0.1em", textTransform: "uppercase" }}>{plan.period}</div>
+                  <div className={`${plan.featured ? "gold-text-gradient" : ""} block mb-2`} style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)", fontWeight: 500, color: plan.featured ? undefined : "#f8f6f0", lineHeight: 1.1 }}>{plan.name}</div>
+                  <div className="mb-4" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.72rem", color: "rgba(248,246,240,0.3)", letterSpacing: "0.1em", textTransform: "uppercase" }}>{plan.period}</div>
                   <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.88rem", color: "rgba(248,246,240,0.45)", lineHeight: 1.7, fontWeight: 300 }}>{plan.desc}</p>
                 </div>
 
